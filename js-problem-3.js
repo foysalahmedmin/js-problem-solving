@@ -167,7 +167,7 @@ function largestName (name){
         if(friendName > largestNameLength){
             largestNameLength = friendName;
             largestName = friends[i];
-        }``
+        }
     }
     return largestName ;
 }
