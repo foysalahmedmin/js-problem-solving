@@ -24,7 +24,7 @@ console.log(cheapestPhone(Phones));
 
 
 
-// Problem 1 :-
+// Problem 2 :-
 /*
 Show The total shopping cost from this objects of array;
 */
@@ -48,7 +48,7 @@ console.log(totalCost(shoppingCart)) ;
 
 
 
-// Problem 1 :-
+// Problem 3 :-
 /*
 1. if ticket numbers is less than 100, per ticket price: 100 ;
 1. if ticket numbers is more than 100, but less than 200. First 100 tickets will be 100/tickets, rest tickets will be 90 taka;
@@ -84,21 +84,6 @@ console.log(ticketPrice(120));
 
 
 
-// Problem 1 :-
-/*
-Make a Fibonacci(ধারা) number array upto 25 elements ;
-*/
-function fibonacci(number){
-    const fibo = [0 , 1];
-    for(let i = 2 ; i <= number; i ++){
-        fibo[i] = fibo[i - 1] + fibo [i - 2] ;
-    }
-    return fibo ;
-}
-console.log(fibonacci(25));
-// end //
-
-
 
 // --------------- Stimulation Object ------------- //
 const Profiles = {
@@ -124,7 +109,7 @@ const Profiles = {
         relationship: true
     },
 };
-// Problem 1 :-
+// Problem 4 :-
 /*
 How many friends have in your fav Person profile? ;
 */
@@ -134,7 +119,10 @@ function fevProfile(name){
     return cuntFriends ;
 }
 console.log(fevProfile("Shamima"));
-// Problem 1 :-
+// end //
+
+
+// Problem 5 :-
 /*
 How many male friends have in your fav Person profile? ;
 */
@@ -154,7 +142,10 @@ function fevProfileBoys(name){
     return maleFriendsCount ;
 }
 console.log(fevProfileBoys("Shamima"));
-// Problem 1 :-
+// end //
+
+
+// Problem 6 :-
 /*
 Which is the largest Name of your friendList? ;
 */
@@ -175,3 +166,217 @@ console.log(largestName ("Foysal"));
 // -------------------- End ------------------ //
 
 
+
+// Problem 7 :-
+/*
+1. if ticket numbers is less than 100, per ticket price: 100 ;
+1. if ticket numbers is more than 100, but less than 200. First 100 tickets will be 100/tickets, rest tickets will be 90 taka;
+1. if ticket numbers is more than 200, 
+    First 100 ---> 100 ;
+    101-200 ---> 90 ;
+    200+ ----> 70 ;
+*/
+function ticketPrice(ticketQuantity){
+    const first100Rate = 100;
+    const second100Rate = 90;
+    const restTicketRate = 70;
+    if(ticketQuantity <= 100){
+        let totalPrice = ticketQuantity * first100Rate ;
+        return totalPrice ;
+    }else if (ticketQuantity <= 200){
+        let first100Price = 100 * first100Rate ;
+        let restTicketQuantity = ticketQuantity - 100 ;
+        let restTicketPrice = restTicketQuantity * second100Rate  ;
+        let totalPrice = first100Price + restTicketPrice ;
+        return totalPrice ;
+    }else {
+        let first100Price = 100 * first100Rate ;
+        let second100Price = 100 * second100Rate ;
+        let restTicketQuantity = ticketQuantity - 200 ;
+        let restTicketPrice = restTicketQuantity * restTicketRate ;
+        let totalPrice = first100Price + second100Price + restTicketPrice;
+        return totalPrice ;
+    }
+}
+console.log(ticketPrice(120));
+// end //
+
+
+
+// Problem 8 :-
+/*
+What will be the area fo the triangle according to Values of the three sides?
+
+Triangle Area formula:-
+Area, A = {s(s -a)(s-b)(s - c)}^-2
+Semi Perimeter, S = (a+b+c) / 2 ;
+*/
+function areaTriangle( a , b , c){
+    let s = (a + b + c) / 2 ;
+    let n = (s * (s -a) * (s-b) * (s - c)) ;
+    let Area = Math.sqrt(n);
+    return Area ;
+}
+console.log(areaTriangle( 3 , 6 , 7)) ;
+
+
+
+// Problem 9 :-
+/*
+Make a Fibonacci(ধারা) number array upto 25 elements ;
+*/
+function fibonacci(number){
+    const fibo = [0 , 1];
+    for(let i = 2 ; i <= number; i ++){
+        fibo[i] = fibo[i - 1] + fibo [i - 2] ;
+    }
+    return fibo ;
+}
+console.log(fibonacci(25));
+// end //
+
+
+
+
+// Problem 10 :-
+/*
+make sure a factorial number(n!) from a number(n);
+*/
+function factorial(number){
+    let factorialValue = 1;
+    for(let i = 0;  i < number; number --){
+        factorialValue = factorialValue * number;
+    }
+    return factorialValue;
+}
+console.log(factorial(5));
+// end //
+
+
+
+
+// Problem 11 :-
+/*
+Check the number is prime number or ont ?
+Note :- // Prime number only divided by 1 and itself [n % 1 = 0 and n % n = 0];
+*/
+function PrimeNumberCheck(number){
+
+    // check if number equal to 1 ;
+    if ( number === 1){
+        return "1 is neither prime nor compoTickete number";
+    }
+    // check if number is greater than 1 ;
+    else if (number > 1){
+
+        let isPrime = true ;
+        // loop for check if number is divided by except 1 and itself ;
+        for(let i = 2; i < number ; i ++){
+            if(number % i == 0){
+                isPrime = false;
+                break ;
+            }
+        }
+        if(isPrime){
+            return number +" "+ "Is a Prime Number";
+        }else{
+            return number +" "+ "Is Not a Prime Number";
+        }
+
+    }
+    // check if number is smaller than 1;
+    else{
+        return number +" "+ "Is Not a Prime Number";
+    }
+
+}
+console.log(PrimeNumberCheck(3));
+// end //
+
+// making prime array according to limited number;
+function PrimeNumberArray(numbersLimit){
+
+    const Prime_Numbers = [];
+
+    for(let number = 0; number <= numbersLimit; number ++){
+        let isPrime = true ;
+        if (number === 0 || number === 1){
+            isPrime = false;
+        }
+        else if (number > 1){
+            for(let i = 2; i < number ; i ++){
+                if(number % i == 0){
+                    isPrime = false;
+                    break ;
+                }
+            }
+            if(isPrime){
+                Prime_Numbers.push(number);
+            }
+        }
+    }
+    return Prime_Numbers ;
+
+}
+console.log(PrimeNumberArray(100));
+// end //
+
+
+
+// Problem 12 :-
+/*
+A large number of people will go on a picnic. The number of buses will depend on the number of people. Suppose we have buses and micros. 
+Each bus has a capacity of 50 people 
+and each microbus has a capacity of 11 people,
+and each public bus ticket costs Tk 250. 
+If there are less than 11 people in the microbus, the microbus cannot go. Now you have to write a function called "picnicVehiclesDetails" which will take a number (how many passengers) as a parameter. 
+It will return you the total amount of public bus fare and how many bus and micro bus their needed.
+*/
+function picnicVehiclesDetails(persons){
+    let publicBusTicketPrice = 250 ;
+    let busCap = 50 ;
+    let microBusCap = 11 ;
+
+    let x = persons / busCap ;      // buses quantity ; 
+    let xEx = persons % busCap;     // Extra passengers who can't have space in the bus;
+    let y = xEx / microBusCap ;     // micro buses quantity ;
+    let yEx = xEx % microBusCap ;   // Extra passengers who can't have space in the micro bus;
+    
+    // removed extra persons from bus and microBuses ;
+    let buses = Math.floor(x);
+    let MicroBuses = Math.floor(y);
+
+    if( persons < busCap ){
+        let y = persons / microBusCap ;  // micro buses quantity ; 
+        let yEx = persons % microBusCap; // Extra passengers who can't have space in the micro bus;
+        if ( persons < microBusCap){
+            let publicCost = persons * publicBusTicketPrice ;
+            return  persons + " people have to go by public bus and their cost wil be " + publicCost +" Taka." ;
+
+        }else if (Number.isInteger(y)){
+            return "Need Only " + MicroBuses +" Micro Buses." ;
+
+        }else {
+            let publicCost = yEx * publicBusTicketPrice ;
+            return "Need Only " + MicroBuses + " Micro Buses and "+ yEx +" people have to go by public bus and their cost wil be " + publicCost +" Taka." ;
+        }
+
+    }else if(Number.isInteger(x)){
+        return "Need Only "+ buses +" Buses " ;
+
+    }else {
+        if ( xEx < microBusCap){
+            let publicCost = xEx * publicBusTicketPrice ;
+            return "Need Only "+ buses +" Buses and " + xEx + " people have to go by public bus and their cost wil be " + publicCost +" Taka." ;
+
+        }else if (Number.isInteger(y)){
+            return "Need Only " + buses + " Buses and "+ MicroBuses +" Micro Buses." ;
+
+        }else {
+            let publicCost = yEx * publicBusTicketPrice ;
+            return "Need Only " + buses + " Buses, " + MicroBuses +" Micro Buses and "+ yEx +" people have to go by public bus and their cost wil be " + publicCost +" Taka." ;
+        }
+    }
+
+}
+console.log(picnicVehiclesDetails(10));

@@ -200,6 +200,25 @@ scending();
 
 // Problem 11 :-
 /*
+make new array one by one from this array until find any negative number;
+*/
+function newArray(arr){
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] < 0){
+            break ;
+        }else{
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr ;
+}
+console.log(newArray([1, 3, 4, 6, 2, 6, 3, -9, -1, 3, -4]));
+// end //
+
+
+// Problem 12 :-
+/*
 make a leap year array from random year array;
 */
 function leap_year(){
@@ -219,19 +238,20 @@ console.log(leap_year());
 
 // Problem 12 :-
 /*
-make sure a factorial number(n!) from a number(n);
+Write a program to make sure is their age distance more 10 year ?;
 */
-function factorial(number){
-    let factorialValue = 1;
-    for(let i = 0;  i < number; number --){
-        factorialValue = factorialValue * number;
+function ageDistance(person1, person2){
+    let x = person1 - person2;
+    let ageDistance = Math.abs(x);
+    if(ageDistance > 10){
+        return "Yas their age distance more than ten and the distance is " + ageDistance ;
+    }else{
+        return "NO their age distance is not more than ten and the distance is " + ageDistance ;
     }
-    console.log(factorialValue);
 }
-factorial(5);
-// end //
+console.log(ageDistance(61, 53));
 
-// Problem 13 :-
+// Problem 14 :-
 function Namta(number){
     let result = 1;
     for(let i = 1;  i <= 10; i++){
