@@ -380,3 +380,4 @@ function picnicVehiclesDetails(persons){
 
 }
 console.log(picnicVehiclesDetails(10));
+// end //
